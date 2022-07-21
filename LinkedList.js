@@ -105,12 +105,12 @@ function LinkedList() {
         if (index === 0) {
             head = currentNode.next;
         } else {
-            while (currentIndex < length) {
-                currentIndex++;
+            while (currentIndex < index) {
+                currentIndex ++;
                 previousNode = currentNode;
                 currentNode = currentNode.next;
             }
-            previousNode.next = currentNode.next
+            previousNode.next = currentNode.next;
         }
         length--;
         return currentNode.element;
