@@ -95,4 +95,36 @@ function LinkedList() {
         }
         length++;
     }
+    this.removeAt = function(index) {
+        let currentNode = head;
+        let previousNode;
+        let currentIndex = 0;
+        if (index < 0 || index >= length) {
+            return null;
+        }
+        if (index === 0) {
+            head = currentNode.next;
+        } else {
+            while (currentIndex < length) {
+                currentIndex++;
+                previousNode = currentNode;
+                currentNode = currentNode.next;
+            }
+            previousNode.next = currentNode.next
+        }
+        length--;
+        return currentNode.element;
+    }
 }
+
+let conga = new LinkedList();
+
+conga.add('Kitten');
+conga.add('Puppy');
+conga.add('Dog');
+conga.add('Cat');
+conga.add('Fish');
+
+console.log(conga.size());
+console.log(conga.removeAt(3));
+console.log(conga.size());
